@@ -21,30 +21,28 @@
 
 ## 1. Problem Statement
 
-> **[JON REWRITE — this section must be in your voice. My stub below captures the
-> structure; replace the prose. Two paragraphs maximum. The test: Danielle should
-> be able to quote a sentence from this section in his own writing.]**
+Every action taken by an autonomous system ultimately resolves to a runtime
+decision: a specific action evaluated against a specific policy at a specific
+moment, producing a specific outcome. Within a single governance deployment,
+that decision can be made independently verifiable. The policy revision in
+force can be identified precisely, the resulting decision record can be
+cryptographically linked against tampering, and any party possessing the
+record and the public verification procedure can validate what occurred.
+Rends provides this capability today.
 
-**[STUB]** An AI agent's action is governed at runtime by a policy decision: this
-action, evaluated against this policy, at this moment, with this outcome. Within a
-single governance deployment, that decision can be made verifiable — anchored to the
-exact policy revision in force, hash-chained against tampering, checkable by anyone
-holding the record and the public verification procedure. Rends ships this today.
-
-**[STUB]** But agents do not act within single deployments. An agent operated by
-company A calls a tool exposed by company B. An insurer underwriting agent risk needs
-to verify decision records produced by infrastructure it does not control. A regulator
-auditing an incident needs records from three vendors' governance layers to agree on
-what policy was in force when. In every one of these cases, the decision record must
-*travel* — and a record that is only verifiable inside the deployment that produced it
-is testimony, not evidence. The gap this RFC addresses: there is no standard way for
-one governance deployment to verify another's decision records without trusting the
-other's infrastructure.
-
-**[JON — candidate scenarios to pick from or replace; the stub uses three, you may
-want one sharp one instead: (a) cross-org agent-to-agent tool calls, (b) insurer /
-underwriter verification, (c) regulator multi-vendor audit, (d) a customer switching
-governance vendors without losing the evidentiary value of historical records.]**
+The challenge begins when autonomous systems cross organizational boundaries.
+An agent operated by one organization invokes tools, services, or agents
+operated by another. The resulting decision records must travel with the
+transaction and remain independently verifiable outside the environment that
+produced them. An insurer underwriting agent risk, or a regulator
+reconstructing an incident across multiple vendors, must be able to verify
+those records without privileged access to the systems that produced them.
+A governance record that can only be validated by returning to the
+infrastructure that generated it is not evidence — it is testimony. As
+autonomous systems increasingly operate across enterprises, vendors, and
+jurisdictions, there is no standard mechanism for portable verification of
+runtime decisions. This RFC proposes a common foundation for exchanging and
+verifying decision evidence across trust boundaries.
 
 ## 2. Trust Model
 
